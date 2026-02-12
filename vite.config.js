@@ -1,6 +1,8 @@
 import { defineConfig } from "vite";
+import fullReload from "vite-plugin-full-reload";
 
 export default defineConfig({
+  plugins: [fullReload(["**/*.php", "parts/**/*.html", "templates/**/*.html"])],
   server: {
     cors: true,
     strictPort: true,
@@ -10,10 +12,7 @@ export default defineConfig({
     emptyOutDir: true,
     manifest: true,
     rollupOptions: {
-      input: {
-        main: "src/js/main.js",
-        styles: "src/css/tailwind.css",
-      },
+      input: "src/js/main.js",
     },
   },
 });
